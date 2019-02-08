@@ -1,4 +1,5 @@
 ﻿using Amazon;
+using Amazon.Runtime.CredentialManagement;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,8 +22,31 @@ namespace Zyborg.IAMCreds.WinForm
             regionComboBox.SelectedItem = RegionEndpoint.USEast1;
         }
 
+        public string CredentialProfileFilePath
+        {
+            set
+            {
+                profileFileTextBox.Text = value;
+            }
+        }
+
+        public List<CredentialProfile> CredentialProfiles
+        {
+            set
+            {
+                profileComboBox.DataSource = value;
+            }
+        }
+
+        public bool UseCredentialProfile => credentialTabControl.SelectedTab == credentialProfileTabPage;
+
         public string AccessKey => accessKeyTextBox.Text;
         public string SecretKey => secretKeyTextBox.Text;
+
+        public CredentialProfile CredentialProfile => UseCredentialProfile
+            ? profileComboBox.SelectedItem as CredentialProfile
+            : null;
+
         public RegionEndpoint RegionEndpoint => regionComboBox.SelectedItem as RegionEndpoint;
         public string RegionSystemName => this.RegionEndpoint?.SystemName ??
             regionComboBox.Text;
@@ -31,6 +55,14 @@ namespace Zyborg.IAMCreds.WinForm
 
         private void okButton_Click(object sender, EventArgs e)
         {
+            if (!UseCredentialProfile)
+            {
+                if (string.IsNullOrEmpty(AccessKey) || string.IsNullOrEmpty(SecretKey))
+                {
+                    MessageBox.Show("You must specify an Access Key ID and Secret Key to authenticate.");
+                    return;
+                }
+            }
             this.DialogResult = DialogResult.OK;
         }
 

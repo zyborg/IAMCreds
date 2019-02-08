@@ -1,6 +1,7 @@
 ﻿using Amazon;
 using Amazon.IdentityManagement;
 using Amazon.IdentityManagement.Model;
+using Amazon.Runtime.CredentialManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,8 +27,13 @@ namespace Zyborg.IAMCreds.WinForm
             IAmazonIdentityManagementService iam;
             User user;
 
+            string authAccessKeyId = null;
+
             while (true)
             {
+                var scf = new SharedCredentialsFile();
+                credInput.CredentialProfileFilePath = scf.FilePath;
+                credInput.CredentialProfiles = scf.ListProfiles();
                 if (credInput.ShowDialog() != DialogResult.OK)
                     // Aborting, end of app
                     return;
@@ -46,8 +52,18 @@ namespace Zyborg.IAMCreds.WinForm
 
                     var reg = credInput.RegionEndpoint ??
                         RegionEndpoint.GetBySystemName(credInput.RegionSystemName);
-                    iam = new AmazonIdentityManagementServiceClient(
-                        credInput.AccessKey, credInput.SecretKey, reg);
+                    if (credInput.UseCredentialProfile)
+                    {
+                        var awsCred = credInput.CredentialProfile.GetAWSCredentials(null);
+                        authAccessKeyId = awsCred.GetCredentials().AccessKey;
+                        iam = new AmazonIdentityManagementServiceClient(awsCred, reg);
+                    }
+                    else
+                    {
+                        authAccessKeyId = credInput.AccessKey;
+                        iam = new AmazonIdentityManagementServiceClient(
+                            credInput.AccessKey, credInput.SecretKey, reg);
+                    }
 
                     var userRequ = new GetUserRequest();
                     var userResp = iam.GetUser(userRequ);
@@ -68,7 +84,7 @@ namespace Zyborg.IAMCreds.WinForm
                 }
             }
 
-            Application.Run(new MainForm(iam, user, credInput.AccessKey));
+            Application.Run(new MainForm(iam, user, authAccessKeyId));
         }
     }
 }

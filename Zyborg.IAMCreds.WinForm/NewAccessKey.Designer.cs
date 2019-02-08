@@ -70,6 +70,7 @@
             this.accessKeyTextBox.ReadOnly = true;
             this.accessKeyTextBox.Size = new System.Drawing.Size(497, 31);
             this.accessKeyTextBox.TabIndex = 2;
+            this.accessKeyTextBox.Click += new System.EventHandler(this.accessKeyTextBox_Enter);
             this.accessKeyTextBox.Enter += new System.EventHandler(this.accessKeyTextBox_Enter);
             // 
             // secretKeyTextBox
@@ -80,6 +81,7 @@
             this.secretKeyTextBox.ReadOnly = true;
             this.secretKeyTextBox.Size = new System.Drawing.Size(497, 31);
             this.secretKeyTextBox.TabIndex = 3;
+            this.secretKeyTextBox.Click += new System.EventHandler(this.secretKeyTextBox_Enter);
             this.secretKeyTextBox.Enter += new System.EventHandler(this.secretKeyTextBox_Enter);
             // 
             // label3
