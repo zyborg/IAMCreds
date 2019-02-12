@@ -44,10 +44,10 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.profileComboBox = new System.Windows.Forms.ComboBox();
-            this.accessKeyTabPage = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.profileFileTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.accessKeyTabPage = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.credentialTabControl.SuspendLayout();
@@ -201,7 +201,7 @@
             this.credentialProfileTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.credentialProfileTabPage.Size = new System.Drawing.Size(923, 158);
             this.credentialProfileTabPage.TabIndex = 1;
-            this.credentialProfileTabPage.Text = "Credential Profile";
+            this.credentialProfileTabPage.Text = "Credential Profile    ";
             this.credentialProfileTabPage.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel3
@@ -243,6 +243,25 @@
             this.profileComboBox.Size = new System.Drawing.Size(772, 33);
             this.profileComboBox.TabIndex = 1;
             // 
+            // profileFileTextBox
+            // 
+            this.profileFileTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.profileFileTextBox.Location = new System.Drawing.Point(142, 3);
+            this.profileFileTextBox.Name = "profileFileTextBox";
+            this.profileFileTextBox.ReadOnly = true;
+            this.profileFileTextBox.Size = new System.Drawing.Size(772, 31);
+            this.profileFileTextBox.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(133, 25);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Profile FIle:";
+            // 
             // accessKeyTabPage
             // 
             this.accessKeyTabPage.Controls.Add(this.tableLayoutPanel2);
@@ -251,7 +270,7 @@
             this.accessKeyTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.accessKeyTabPage.Size = new System.Drawing.Size(923, 158);
             this.accessKeyTabPage.TabIndex = 0;
-            this.accessKeyTabPage.Text = "Access Key";
+            this.accessKeyTabPage.Text = "Access Key    ";
             this.accessKeyTabPage.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
@@ -271,25 +290,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(917, 152);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // profileFileTextBox
-            // 
-            this.profileFileTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.profileFileTextBox.Location = new System.Drawing.Point(142, 3);
-            this.profileFileTextBox.Name = "profileFileTextBox";
-            this.profileFileTextBox.ReadOnly = true;
-            this.profileFileTextBox.Size = new System.Drawing.Size(772, 31);
-            this.profileFileTextBox.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(133, 25);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Profile FIle:";
             // 
             // CredentialInput
             // 

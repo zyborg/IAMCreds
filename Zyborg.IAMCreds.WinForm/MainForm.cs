@@ -136,14 +136,14 @@ namespace Zyborg.IAMCreds.WinForm
             await LoadLoginProfile();
         }
 
-        private async void refreshLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private  async void refreshButton_Click(object sender, EventArgs e)
         {
             await BindUser();
             await LoadAccessKeys();
             await LoadLoginProfile();
         }
 
-        private async void akCreate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private async void akCreateButton_Click(object sender, EventArgs e)
         {
             try
             {
