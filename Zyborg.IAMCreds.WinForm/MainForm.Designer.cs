@@ -56,8 +56,7 @@
             this.createdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastUsedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serviceNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteLinkColumn = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.deleteButtonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.mainTabControl.SuspendLayout();
             this.accessKeysTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accessKeysDataGrid)).BeginInit();
@@ -105,8 +104,7 @@
             this.createdColumn,
             this.lastUsedColumn,
             this.serviceNameColumn,
-            this.deleteLinkColumn,
-            this.Column1});
+            this.deleteButtonColumn});
             this.accessKeysDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.accessKeysDataGrid.Location = new System.Drawing.Point(3, 84);
             this.accessKeysDataGrid.MultiSelect = false;
@@ -383,24 +381,12 @@
             this.serviceNameColumn.Name = "serviceNameColumn";
             this.serviceNameColumn.ReadOnly = true;
             // 
-            // deleteLinkColumn
+            // deleteButtonColumn
             // 
-            this.deleteLinkColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.deleteLinkColumn.DataPropertyName = "DeleteLinkLabel";
-            this.deleteLinkColumn.HeaderText = "";
-            this.deleteLinkColumn.MinimumWidth = 50;
-            this.deleteLinkColumn.Name = "deleteLinkColumn";
-            this.deleteLinkColumn.Text = "Delete";
-            this.deleteLinkColumn.UseColumnTextForLinkValue = true;
-            this.deleteLinkColumn.VisitedLinkColor = System.Drawing.Color.Blue;
-            this.deleteLinkColumn.Width = 50;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.Text = "Delete";
-            this.Column1.UseColumnTextForButtonValue = true;
+            this.deleteButtonColumn.HeaderText = "";
+            this.deleteButtonColumn.Name = "deleteButtonColumn";
+            this.deleteButtonColumn.Text = "Delete";
+            this.deleteButtonColumn.UseColumnTextForButtonValue = true;
             // 
             // MainForm
             // 
@@ -458,8 +444,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn createdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastUsedColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn serviceNameColumn;
-        private System.Windows.Forms.DataGridViewLinkColumn deleteLinkColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn Column1;
+        private System.Windows.Forms.DataGridViewButtonColumn deleteButtonColumn;
     }
 }
 

@@ -85,11 +85,6 @@ namespace Zyborg.IAMCreds.WinForm
                     x.CreateDate,
                     _accessKeyLasts[y].LastUsedDate,
                     ServiceName = SvcReg(_accessKeyLasts[y]),
-
-                    // Weird bug in MONO version of DataGridViewLinkColumn that doesn't respect
-                    // the `UseColumnTextForLinkValue` property to allow static link text
-                    // TODO: Submit a GH issue for mono
-                    DeleteLinkLabel = "Delete",
                 }).ToArray();
             accessKeysDataGrid.DataSource = _accessKeyDetails;
 
@@ -200,7 +195,7 @@ namespace Zyborg.IAMCreds.WinForm
                 return;
             }
         
-            if (accessKeysDataGrid.Columns[e.ColumnIndex].Name == nameof(deleteLinkColumn))
+            if (accessKeysDataGrid.Columns[e.ColumnIndex].Name == nameof(deleteButtonColumn))
             {
                 try
                 {
